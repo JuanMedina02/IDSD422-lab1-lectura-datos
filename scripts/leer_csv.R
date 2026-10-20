@@ -1,4 +1,4 @@
-# install.packages('readr')
+ install.packages('readr')
 library(readr)
 ventas_csv <- read_csv("../data/ventas.csv")
 
