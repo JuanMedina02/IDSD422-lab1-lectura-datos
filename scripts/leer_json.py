@@ -1,9 +1,12 @@
-# leer_json.py — Cargar el reporte JSON de la API (Python)
-# Completa los pasos marcados con TODO. Ejecuta desde la raíz del repositorio:
-#   python scripts/leer_json.py
+import json
+import pandas as pd     # Importación de bibliotecas
+with open("../data/ventas.json", encoding="utf-8") as f:  #Abrimos el archivo JSON
+    datos = json.load(f)
+pd_ventas = pd.json_normalize(datos)      # Normalización y conversion a DataFrame 
+#=============================================================
+print('Impresión de las primeras filas del archivo JSON')
+print(pd_ventas.head())                                                
 
-# TODO 1: importa json y pandas
-# TODO 2: carga data/ventas.json con json.load
-# TODO 3: convierte la lista de diccionarios en un DataFrame
-#         (recuerda del cap. 2: el JSON no llega como tabla directa)
-# TODO 4: imprime las dimensiones y las primeras filas
+print('\nDimensiones: ',pd_ventas.shape)              # Diemnsiones del DataFrame
+print('\nTipos por columna: ')                     
+print(pd_ventas.dtypes) 

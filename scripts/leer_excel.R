@@ -1,6 +1,15 @@
-# leer_excel.R — Cargar el consolidado Excel de finanzas (R)
-# Completa los pasos marcados con TODO. Ejecuta desde la raíz del repositorio:
-#   Rscript scripts/leer_excel.R
+# install.packages('readxl') 
+library(readxl)
 
-# TODO 1: carga data/ventas.xlsx con readxl::read_excel indicando la hoja
-# TODO 2: imprime las dimensiones (dim) y las primeras filas (head)
+cat("Lectura de archivos tipo XLSX\n")
+#read_excel  nos permite especificar la hoja a leer
+ventas_xlsx <- read_excel("../data/ventas.xlsx", sheet = "ventas")
+
+cat("\nImpresión de las primeras filas del archivo XLSX:\n")
+print(head(ventas_xlsx))
+
+cat("\nDimensiones (filas, columnas):\n")
+print(dim(ventas_xlsx))
+
+cat("\nEstructura y tipos por columna:\n")
+str(ventas_xlsx)

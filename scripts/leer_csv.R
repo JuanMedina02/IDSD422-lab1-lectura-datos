@@ -1,7 +1,12 @@
-# leer_csv.R — Cargar el reporte CSV del ERP (R)
-# Completa los pasos marcados con TODO. Ejecuta desde la raíz del repositorio:
-#   Rscript scripts/leer_csv.R
+# install.packages('readr')
+library(readr)
+ventas_csv <- read_csv("../data/ventas.csv")
 
-# TODO 1: carga data/ventas.csv con readr::read_csv en un data.frame
-# TODO 2: imprime las dimensiones (dim) del data.frame
-# TODO 3: imprime las primeras filas (head) para revisar las columnas
+cat("\nImpresión de las primeras filas del archivo CSV:\n")
+print(head(ventas_csv))
+
+cat("\nDimensiones (filas, columnas):\n")
+print(dim(ventas_csv))
+
+cat("\nEstructura y tipos por columna:\n")
+str(ventas_csv)

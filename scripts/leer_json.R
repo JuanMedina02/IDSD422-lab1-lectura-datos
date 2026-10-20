@@ -1,7 +1,15 @@
-# leer_json.R — Cargar el reporte JSON de la API (R)
-# Completa los pasos marcados con TODO. Ejecuta desde la raíz del repositorio:
-#   Rscript scripts/leer_json.R
 
-# TODO 1: carga data/ventas.json con jsonlite::fromJSON
-# TODO 2: convierte el resultado en data.frame si hace falta
-# TODO 3: imprime las dimensiones (dim) y las primeras filas (head)
+# install.packages('jsonlite')
+library(jsonlite)
+
+cat("Lectura de archivos tipo JSON\n")
+#fromJSON lee el archivo y lo convierte automáticamente en un data.frame
+ventas_json <- fromJSON("../data/ventas.json")
+cat("\nImpresión de las primeras filas del archivo JSON:\n")
+print(head(ventas_json))
+
+cat("\nDimensiones (filas, columnas):\n")
+print(dim(ventas_json))
+
+cat("\nEstructura y tipos por columna:\n")
+str(ventas_json)
